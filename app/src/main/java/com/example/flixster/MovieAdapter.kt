@@ -11,14 +11,13 @@ import com.bumptech.glide.request.RequestOptions
 
 
 class MovieViewAdapter(
-    private val movies: List<Movie>,
+    private val people: List<PersonClass>,
     private val listener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MovieViewAdapter.MovieViewHolder>() {
 
     class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.movieTitle)
-        val overview: TextView = view.findViewById(R.id.movieOverview)
-        val poster: ImageView = view.findViewById(R.id.moviePoster)
+        val name: TextView = view.findViewById(R.id.movieTitle) // Renamed to "name"
+        val profileImage: ImageView = view.findViewById(R.id.moviePoster) // Renamed to "profileImage"
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
@@ -28,18 +27,16 @@ class MovieViewAdapter(
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movies[position]
+        val person = people[position]
 
-        holder.title.text = movie.title
-        holder.overview.text = movie.overview
+        holder.name.text = person.name
 
         Glide.with(holder.itemView.context)
-            .load("https://image.tmdb.org/t/p/w500" + movie.poster_path) // Correct image URL
-            .into(holder.poster)
+            .load(person.getProfileUrl())
+            .into(holder.profileImage)
     }
 
-
-    override fun getItemCount(): Int = movies.size
+    override fun getItemCount(): Int = people.size
 }
 
 

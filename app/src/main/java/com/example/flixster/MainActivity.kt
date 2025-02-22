@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity(), OnListFragmentInteractionListener {
             .commit()
     }
 
-    override fun onMovieSelected(movie: Movie) {
-        // Handle movie selection (e.g., show details or navigate to another screen)
+    override fun onMovieSelected(person: PersonClass) {
+        // Handle person selection (e.g., show details or navigate to another screen)
     }
 }
+

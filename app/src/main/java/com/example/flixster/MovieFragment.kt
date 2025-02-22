@@ -39,11 +39,11 @@ class MovieFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_movie_list, container, false)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        fetchMovies()
+        fetchPeople() // Fetch popular people
         return view
     }
 
-    private fun fetchMovies() {
+    private fun fetchPeople() {
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.themoviedb.org/3/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -51,8 +51,8 @@ class MovieFragment : Fragment() {
 
         val apiService = retrofit.create(MovieApiService::class.java)
 
-        apiService.getNowPlayingMovies(apiKey).enqueue(object : Callback<MovieResponse> {
-            override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
+        apiService.popularPeople(apiKey).enqueue(object : Callback<PersonResponse> {
+            override fun onResponse(call: Call<PersonResponse>, response: Response<PersonResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.results?.let {
                         recyclerView.adapter = MovieViewAdapter(it, listener)
@@ -60,16 +60,16 @@ class MovieFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<MovieResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PersonResponse>, t: Throwable) {
                 // Handle failure
             }
         })
     }
 
     interface MovieApiService {
-        @GET("movie/now_playing")
-        fun getNowPlayingMovies(@Query("api_key") apiKey: String): Call<MovieResponse>
+        @GET("person/popular")
+        fun popularPeople(@Query("api_key") apiKey: String): Call<PersonResponse>
     }
 
-    data class MovieResponse(val results: List<Movie>)
+    data class PersonResponse(val results: List<PersonClass>)
 }
