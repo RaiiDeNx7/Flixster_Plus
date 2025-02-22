@@ -3,47 +3,25 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="?attr/selectableItemBackground">
+    android:background="?attr/selectableItemBackground"
+    android:layout_marginBottom="16dp"> <!-- Add space at the bottom -->
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <!-- Adjusted ImageView size -->
+    <ImageView
+        android:id="@+id/moviePoster"
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        android:layout_marginEnd="50dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/movieTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/moviePoster"
-            android:layout_width="100dp"
-            android:layout_height="150dp"
-            android:scaleType="centerCrop"
-            android:layout_marginEnd="8dp" />
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/movieTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:paddingTop="4dp"
-                android:textColor="@android:color/black" />
-
-            <TextView
-                android:id="@+id/movieOverview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="3"
-                android:ellipsize="end"
-                android:textSize="14sp"
-                android:textColor="@android:color/darker_gray"
-                android:paddingTop="2dp" />
-
-        </LinearLayout>
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/black"
+        android:gravity="center"
+        android:paddingTop="8dp" />
 </LinearLayout>
 
