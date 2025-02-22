@@ -5,6 +5,19 @@
     android:orientation="vertical"
     android:padding="8dp">
 
+    <!-- Header TextView that stays at the top -->
+    <TextView
+        android:id="@+id/headerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Popular People"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:background="#f5f5f5" /> <!-- Light background color -->
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -16,7 +29,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        android:layout_marginTop="8dp" /> <!-- Optional margin -->
+        android:scrollbars="vertical" />
+
 </LinearLayout>
 
