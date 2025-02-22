@@ -1,17 +1,17 @@
-# Android Project 4 - *Name of App Here*
+# Android Project 4 - *Flixster+*
 
-Submitted by: **Your Name Here**
+Submitted by: **Hunter Smith**
 
-**Name of your app** is a movie browsing app that allows users to browse ... [TODO] 
+**Flixster+** is a movie browsing app that allows users to browse popular actors/actresses. Users can click on them to find out more information about them.
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
 - [ ] **Choose any endpoint on The MovieDB API except `now_playing`**
-  - Chosen Endpoint: `[TODO: FILL ME IN TO GET CREDIT]`
+  - Chosen Endpoint: `https://api.themoviedb.org/3/person/popular`
 - [ ] **Make a request to your chosen endpoint and implement a RecyclerView to display all entries**
 - [ ] **Use Glide to load and display at least one image per entry**
 - [ ] **Click on an entry to view specific details about that entry using Intents**
@@ -45,7 +45,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2025] [Hunter Smith]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
